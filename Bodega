@@ -1,0 +1,185 @@
+# <- Bodega ->
+bodega = [ ]
+
+# <- Precios ->
+precios = [25.900 , 5.700 , 16.900 , 24.900 , 6.600 , 7.500 , 29.900 , 12.700 , 13.200 , 20.600]
+
+# <- Registro ->
+lunes = [ ]
+martes = [ ]
+miercoles = [ ]
+jueves = [ ]
+viernes = [ ]
+sabado = [ ]
+domingo = [ ]
+
+# <- Registro Semanal ->
+semana = [lunes , martes , miercoles, jueves , viernes , sabado , domingo]
+
+# <- Carga en Almacen ->
+def inventario():
+  print('LISTA DE UTILES\n--------------------------\n(0) Cuaderno Argollado = 25.900\n(1) Caja de Colores = 5.700\n(2) Regla = 16.900\n(3) Escuadra = 24.900\n(4) Caja de Lapices Negros = 6.600\n(5) Caja de Esferos Negros = 7.500\n(6) Caja Marcadores de Colores = 29.900\n(7) Cinta Ancha Transparente = 12.700\n(8) Caja Borrador = 13.200\n(9) Paquete de Resma = 20.600\n---------------------------------')
+  print('Desea Continuar SI = 1 | NO = 2')
+  opc = int(input())
+  while opc == 1:
+    print('---------------------------------\nSeleccione el producto por el número de la lista')
+    selec_precio = int(input())
+    print('Digite la Cantidad: ')
+    cant = int(input())
+    for i in range(cant):
+      bodega.append(precios[selec_precio])
+    print('---------- INVENTARIO BODEGA ----------')
+    print(bodega)
+    print('---------------------------------\nDesea Continuar SI = 1 | NO = 2')
+    opc = int(input())
+
+# <- Compra ->
+def compra():
+  print('|||||||||||||||||||||||||||||||||')
+  print('----------- COMPRAS -----------')
+  print('Desea Continuar SI = 1 | NO = 2')
+  opc = int(input())
+  while opc == 1:
+    print('Digite el día: ')
+    opcD = str(input())
+    print('Digite la cantidad a comprar: ')
+    cantidad = int(input())
+    print('Seleccione el producto por el número de la lista: ')
+    producto=int(input())
+# ----- LUNES
+    if opcD == 'lunes':
+      try:
+        for i in range(cantidad):
+          bodega.remove(precios[producto])
+          lunes.append(precios[producto])
+          suma = cantidad * precios[producto]
+          stock = bodega.count(precios[producto])
+        print('Valor de Compra: ',suma)
+        print('Hay en Bodega: ',stock,'De #',producto,'en la lista')
+      except:
+        print('---------------------------------')
+        print('Ya no hay esa cantidad en Bodega')
+# ------- MARTES
+    elif opcD == 'martes':
+      try:
+        for i in range(cantidad):
+          bodega.remove(precios[producto])
+          martes.append(precios[producto])
+          suma = cantidad * precios[producto]
+          stock = bodega.count(precios[producto])
+        print('Valor de Compra: ',suma)
+        print('Hay en Bodega: ',stock,'De #',producto,'en la lista')
+      except:
+        print('---------------------------------')
+        print('Ya no hay esa cantidad en Bodega')
+# ------- MIERCOLES 
+    elif opcD == 'miercoles':
+      try:
+        for i in range(cantidad):
+          bodega.remove(precios[producto])
+          miercoles.append(precios[producto])
+          suma = cantidad * precios[producto]
+          stock = bodega.count(precios[producto])
+        print('Valor de Compra: ',suma)
+        print('Hay en Bodega: ',stock,'De #',producto,'en la lista')
+      except:
+        print('---------------------------------')
+        print('Ya no hay esa cantidad en Bodega')
+# --------- JUEVES
+    elif opcD == 'jueves':
+      try:
+        for i in range(cantidad):
+          bodega.remove(precios[producto])
+          jueves.append(precios[producto])
+          suma = cantidad * precios[producto]
+          stock = bodega.count(precios[producto])
+        print('Valor de Compra: ',suma)
+        print('Hay en Bodega: ',stock,'De #',producto,'en la lista')
+      except:
+        print('---------------------------------')
+        print('Ya no hay esa cantidad en Bodega')
+# ---- VIERNES
+    elif opcD == 'viernes':   
+      try:
+        for i in range(cantidad):
+          bodega.remove(precios[producto])
+          viernes.append(precios[producto])
+          suma = cantidad * precios[producto]
+          stock = bodega.count(precios[producto])
+        print('Valor de Compra: ',suma)
+        print('Hay en Bodega: ',stock,'De #',producto,'en la lista')
+      except:
+        print('---------------------------------')
+        print('Ya no hay esa cantidad en Bodega')
+# ------- SABADO
+    elif opcD == 'sabado':
+      try:
+        for i in range(cantidad):
+          bodega.remove(precios[producto])
+          sabado.append(precios[producto])
+          suma = cantidad * precios[producto]
+          stock = bodega.count(precios[producto])
+        print('Valor de Compra: ',suma)
+        print('Hay en Bodega: ',stock,'De #',producto,'en la lista')
+      except:
+        print('---------------------------------')
+        print('Ya no hay esa cantidad en Bodega')
+# ----- DOMINGO
+    elif opcD == 'domingo':
+      try:
+          for i in range(cantidad):
+            bodega.remove(precios[producto])
+            domingo.append(precios[producto])
+            suma = cantidad * precios[producto]
+            stock = bodega.count(precios[producto])
+          print('Valor de Compra: ',suma)
+          print('Hay en Bodega: ',stock,'De #',producto,'en la lista')
+      except:
+        print('---------------------------------')
+        print('Ya no hay esa cantidad en Bodega')
+    #---------------
+    print('\n|||||||||||||||||||||||||||||||||')
+    print('----------- COMPRAS -----------')
+    print('Desea Continuar SI = 1 | NO = 2')
+
+def reporte():
+  # Lista Ventas Semanales
+  vl = sum(lunes)
+  vm = sum(martes)
+  vmm = sum(miercoles)
+  vj = sum(jueves)
+  vv = sum(viernes)
+  vs = sum(sabado)
+  vd = sum(domingo)
+  # Lista Cantidad Ventas Semanales
+  cvl = len(lunes)
+  cvm = len(martes)
+  cvmm = len(miercoles)
+  cvj = len(jueves)
+  cvv = len(viernes)
+  cvs = len(sabado)
+  cvd = len(domingo)
+  # < Lista Ventas Semanales 
+  ventas = [vl,vm,vmm,vj,vv,vs,vd]
+  # < Lista Cantidad Ventas Semanales
+  cant_ventas = [cvl,cvm,cvmm,cvj,cvv,cvs,cvd]
+  # Conteo de Ventas y Cantidades
+  vt_total = sum(ventas)
+  cv_total = sum(cant_ventas)
+  # Reportes
+  print('|||||||||||||||||||||||||||||||||')
+  print('------------ REPORTE ------------')
+  print('         L',' M',' M',' J',' V',' S',' D')
+  print('CANT:  ',cant_ventas)
+  print('VENT:  ',ventas)
+  print('Suma total final de semana: ',vt:total,'pesos en total')
+  print('Unidades vendidas final de semana: ',cv_total)
+  print('|||||||||||||||||||||||||||||||||')
+  print('INVENTARIO BODEGA FINAL DE SEMANA')
+  for i in range(10):
+    stock = bodega.count(precios[i])
+    print('#',i,'de la lista hay = ',stock,' unidades')
+
+inventario()
+compra()
+reporte()
